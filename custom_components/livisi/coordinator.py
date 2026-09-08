@@ -66,6 +66,8 @@ class LivisiDataUpdateCoordinator(DataUpdateCoordinator[list[LivisiDevice]]):
         self.active_host: str = config_entry.data[CONF_HOST]
         self._reconnecting: bool = False  # guard against re-entry in reconnect
         self._ws_generation: int = 0  # incremented each time ws_connect() is called
+        # Internal device registry UUID of the SHC hub, set during async_setup_entry.
+        self.controller_registry_id: str | None = None
 
     # ---------------------------------------------------------------------
     # HA lifecycle

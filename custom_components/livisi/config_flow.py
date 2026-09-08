@@ -169,7 +169,6 @@ class LivisiFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             raise ShcUnreachableException(
                 f"Neither {host} nor {host_secondary} is reachable."
             ) from exc
-
     async def create_entity(
         self, user_input: dict[str, str], controller: LivisiController
     ) -> FlowResult:
